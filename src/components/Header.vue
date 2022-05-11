@@ -1,0 +1,239 @@
+<template>
+  <header class="header">
+    <div class="header-content">
+      <router-link to="/#">
+        <img class="logo" src="../assets/common/logo.png" alt="" />
+      </router-link>
+      <nav class="navs">
+        <ul>
+          <li class="nav">
+            <Anchor target="schedule">
+              <div class="nav-ja">
+                <span>スケジュール</span>
+              </div>
+              <span class="nav-zh">当日行程</span>
+            </Anchor>
+          </li>
+          <div class="nav-separator" />
+          <li class="nav">
+            <Anchor target="location">
+              <div class="nav-ja">
+                <span>活動場所</span>
+              </div>
+              <span class="nav-zh">场地信息</span>
+            </Anchor>
+          </li>
+          <div class="nav-separator" />
+          <li class="nav">
+            <Anchor target="tickets">
+              <div class="nav-ja">
+                <span>入場券</span>
+              </div>
+              <span class="nav-zh">票务信息</span>
+            </Anchor>
+          </li>
+          <div class="nav-separator" />
+          <li class="nav">
+            <Anchor target="events">
+              <div class="nav-ja">
+                <span>アクティブプロセス</span>
+              </div>
+              <span class="nav-zh">活动安排</span>
+            </Anchor>
+          </li>
+          <div class="nav-separator" />
+          <li class="nav">
+            <Anchor target="booths">
+              <div class="nav-ja">
+                <span>ブース</span>
+              </div>
+              <span class="nav-zh">现场摊位</span>
+            </Anchor>
+          </li>
+          <div class="nav-separator" />
+        </ul>
+      </nav>
+    </div>
+  </header>
+</template>
+
+<!--<Tickets />-->
+<!--<Prizes />-->
+<!--<events />-->
+<!--<Booths />-->
+
+<script lang="ts">
+import { defineComponent } from "vue";
+
+import Anchor from "./Anchor.vue";
+
+export default defineComponent({
+  name: "Header",
+  components: {
+    Anchor,
+  },
+});
+</script>
+
+<style scoped>
+.header {
+  position: relative;
+  width: 100%;
+  height: 303px;
+  background: #ffffff;
+  z-index: 1;
+  padding: 56px;
+}
+
+.header-content {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1810px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  position: relative;
+  width: auto;
+  height: 100%;
+}
+
+.navs {
+  flex: 1 1 auto;
+}
+
+.navs > ul {
+  display: flex;
+  height: 100%;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.nav {
+  position: relative;
+  display: flex;
+  max-width: 312px;
+  height: 100%;
+  flex: 1 1 auto;
+}
+
+.nav-separator {
+  position: relative;
+  width: 3px;
+  height: 62px;
+  border-radius: 50%;
+  background-color: #18171b;
+}
+
+.nav:hover::before {
+  content: "";
+  position: absolute;
+  background: url("../assets/header/nav-hover.png") no-repeat center center;
+  background-size: contain;
+  width: 200%;
+  height: 300%;
+  top: -100%;
+  left: -58%;
+  z-index: -1;
+}
+
+.nav > a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.nav > a > span {
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.nav-ja {
+  color: #d31751;
+  font-size: 14px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  line-height: 1.2rem;
+  width: 0;
+  height: 1.2rem;
+  overflow: visible;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav-ja > span {
+  display: block;
+}
+
+.nav-zh {
+  color: #151317;
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 2rem;
+}
+
+@media only screen and (max-width: 1280px) {
+  .header {
+    height: 40px;
+  }
+
+  .logo-container {
+    width: 200px;
+  }
+
+  .nav > a > span {
+    line-height: 0.8rem;
+  }
+
+  .nav-ja {
+    font-size: 7px;
+  }
+
+  .nav-zh {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .logo-container {
+    width: 120px;
+  }
+
+  .nav > a > span {
+    line-height: 0.8rem;
+  }
+
+  .nav-ja {
+    font-size: 5px;
+  }
+
+  .nav-zh {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .header {
+    height: 12px;
+  }
+
+  .logo-container {
+    margin-left: 3%;
+  }
+
+  .navs {
+    display: none;
+  }
+}
+</style>
