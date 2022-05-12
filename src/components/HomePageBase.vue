@@ -1,8 +1,11 @@
 <template>
   <div class="home-page">
     <a class="anchor" :name="name" :title="title" />
-    <div class="title">
-      <h2>{{ title }}</h2>
+    <div class="title-container">
+      <div class="title">
+        <h2>{{ title }}</h2>
+      </div>
+      <slot name="title" />
     </div>
     <div class="content">
       <slot />
@@ -30,7 +33,7 @@ export default defineComponent({
     if (!inHome()) {
       setTitle(this.title)
     }
-  }
+  },
 })
 </script>
 
@@ -54,6 +57,17 @@ export default defineComponent({
   user-select: none;
   top: 0;
   opacity: 0;
+}
+
+.title-container {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .title {

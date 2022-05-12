@@ -1,15 +1,42 @@
 <template>
-  <HomePageBase class="page-location" name="location" :title="{en: 'Location', zh:'场地信息'}">
-    <div class="map-container">
+  <HomePageBase class="page-location" name="location" title="场地信息">
+    <svg class="location-content" viewBox="0 0 1477 1080">
+      <image
+        xlink:href="../../assets/page-backgrounds/location.png"
+        x="280.5"
+        y="56"
+        height="465"
+        width="755"
+      />
+      <image
+        xlink:href="../../assets/location/map-container.png"
+        x="0"
+        y="392"
+        height="633"
+        width="1477"
+      />
       <a class="map" href="https://j.map.baidu.com/4e/gek" target="_blank">
-        <img src="../../assets/location/map.png" alt="">
+        <image
+          xlink:href="../../assets/location/map.png"
+          x="301"
+          y="456.5"
+          height="504.38179425511194"
+          width="875"
+        />
       </a>
-      <div class="helpText">*来源于百度地图</div>
-    </div>
-    <div class="info">
-      <ItemCard number="09" name="Metro" time="上海市闵行区漕宝路 1688 号诺宝中心">
-        地铁<span class="blue">九号线</span>星中路站<span class="blue">2号出口</span>
-      </ItemCard>
+      <text
+        class="help-text"
+        fill="#ffffff"
+        x="1160"
+        y="980"
+        font-size="13px"
+        text-anchor="end"
+      >
+        *来源百度地图
+      </text>
+    </svg>
+    <div class="location-text">
+      漕宝路 1688 号诺宝中心 | 9 号线星中路 2 号口
     </div>
   </HomePageBase>
 </template>
@@ -21,8 +48,9 @@ import ItemCard from "../../components/ItemCard.vue"
 export default {
   name: "Location",
   components: {
-    ItemCard, HomePageBase
-  }
+    ItemCard,
+    HomePageBase,
+  },
 }
 </script>
 
@@ -31,60 +59,25 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url("../../assets/location/background.png");
-  background-repeat: no-repeat;
-  background-size: 100% auto;
-  background-position: bottom;
 }
 
-.map-container {
-  background-image: url("../../assets/location/map-background.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  margin-top: 48px;
-  width: 90.104%;
-  padding-top: 38.75%;
-  position: relative;
-}
-
-.map {
-  display: block;
-  position: absolute;
-  top: 10.618%;
-  left: 19.884%;
-  width: 59.364%;
-}
-
-.map > img {
-  width: 100%;
+.location-content {
+  margin-top: 80px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 76.93%;
+  min-width: 720px;
   height: auto;
+  z-index: 0;
 }
 
-.helpText {
-  display: block;
-  position: absolute;
-  left: 19.884%;
-  bottom: 6.452%;
-  width: 59.133%;
+.location-text {
   color: #ffffff;
-  text-align: right;
-  font-size: 12px;
-  user-select: none;
-}
-
-.info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 32px;
-  width: 100%;
-  max-width: 605px;
-  overflow: hidden;
-}
-
-.info > .item-card {
-  flex-direction: column;
-  align-items: center;
+  background-color: #21222c;
+  font-weight: bold;
+  border-radius: 10px;
+  font-size: 24px;
+  padding: 8px 20px;
 }
 
 @media only screen and (max-width: 600px) {

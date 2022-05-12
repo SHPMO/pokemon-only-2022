@@ -63,16 +63,16 @@
 <!--<Booths />-->
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent } from "vue"
 
-import Anchor from "./Anchor.vue";
+import Anchor from "./Anchor.vue"
 
 export default defineComponent({
   name: "Header",
   components: {
     Anchor,
   },
-});
+})
 </script>
 
 <style scoped>
@@ -93,6 +93,7 @@ export default defineComponent({
   height: 100%;
   display: flex;
   align-items: center;
+  overflow: hidden;
 }
 
 .logo {

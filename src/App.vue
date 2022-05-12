@@ -1,24 +1,21 @@
 <template>
   <Header />
   <div class="back-to-top" :class="{ fullHeight: inFooter }">
-    <div :class="{ inTitle, inFooter }" @click="backToTop">回到<br />上方</div>
+    <div :class="{ inTitle, inFooter }" @click="backToTop">
+      <div>回到<br />上方</div>
+    </div>
   </div>
   <router-view />
   <Footer />
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent } from "vue"
 
-import Header from "./components/Header.vue";
-import Footer from "./components/Footer.vue";
+import Header from "./components/Header.vue"
+import Footer from "./components/Footer.vue"
 
-import {
-  inHome,
-  isLandscapeOrientation,
-  setHash,
-  setTitle,
-} from "./utils/view";
+import { inHome, isLandscapeOrientation, setHash, setTitle } from "./utils/view"
 
 export default defineComponent({
   name: "App",
@@ -31,62 +28,64 @@ export default defineComponent({
       inTitle: true,
       inFooter: false,
       previousTop: -1,
-    };
+    }
   },
   methods: {
     backToTop() {
-      setHash("", true); // , false)
+      setHash("", true) // , false)
     },
     onScroll() {
       const currentTop =
-        window.pageYOffset || document.documentElement.scrollTop;
+        window.pageYOffset || document.documentElement.scrollTop
       this.inTitle =
         currentTop <=
-        (isLandscapeOrientation() ? 84 : 131) + window.innerHeight * 0.1;
+        (isLandscapeOrientation() ? 410 : 131) + window.innerHeight * 0.1
       this.inFooter =
         document.documentElement.scrollHeight -
           currentTop -
-          window.innerHeight * 0.9 +
-          42 <
-        196;
+          window.innerHeight * 0.9 +42 <
+        196
+      console.log([document.documentElement.scrollHeight, currentTop, window.innerHeight])
 
-      const goingDown = currentTop > this.previousTop;
-      this.previousTop = currentTop;
-      let t = window.innerHeight / 3;
+      const goingDown = currentTop > this.previousTop
+      this.previousTop = currentTop
+      let t = window.innerHeight / 3
       if (!goingDown && (isLandscapeOrientation() || currentTop > t)) {
-        t *= 2;
+        t *= 2
       }
       if (inHome()) {
         const anchors = Array.from(
           document.querySelectorAll(".home-page > .anchor")
-        ).reverse();
+        ).reverse()
         for (const anchor of anchors) {
           if (anchor?.getBoundingClientRect().top <= t) {
-            const name = anchor.getAttribute("name");
-            setHash(name);
-            setTitle(anchor.getAttribute("title"));
-            return;
+            const name = anchor.getAttribute("name")
+            setHash(name)
+            setTitle(anchor.getAttribute("title"))
+            return
           }
         }
-        setHash("");
-        setTitle("首页");
+        setHash("")
+        setTitle("首页")
       }
     },
   },
   mounted() {
-    window.addEventListener("scroll", this.onScroll);
-    setHash(location.hash.slice(1), true, false);
-    this.onScroll();
+    window.addEventListener("scroll", this.onScroll)
+    setHash(location.hash.slice(1), true, false)
+    this.onScroll()
   },
   unmounted() {
-    window.removeEventListener("scroll", this.onScroll);
+    window.removeEventListener("scroll", this.onScroll)
   },
-});
+})
 </script>
 
 <style scoped>
 .back-to-top {
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100vh;
 }
@@ -101,20 +100,30 @@ export default defineComponent({
   bottom: 10%;
   cursor: pointer;
   background-image: url("./assets/home/top.png");
-  width: 95px;
-  height: 131px;
+  width: 125px;
+  height: 124px;
   background-repeat: no-repeat;
+  display: flex;
   z-index: 2;
+}
+
+.back-to-top > div > div {
+  margin: auto;
+  color: #d6c18a;
+  text-align: center;
+  font-size: 25px;
+  line-height: 28px;
+  letter-spacing: 2px;
 }
 
 .back-to-top > div.inTitle {
   position: absolute;
-  bottom: -84px;
+  bottom: -390px;
 }
 
 .back-to-top > div.inFooter {
   position: absolute;
-  bottom: 154px;
+  bottom: 134px;
 }
 
 @media only screen and (orientation: portrait) {

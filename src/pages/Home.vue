@@ -2,9 +2,9 @@
   <div id="page-home">
     <Title />
     <Schedule />
-    <!-- <Location />
+    <Location />
     <Tickets />
-    <Prizes />
+    <!-- <Prizes />
     <Events />
     <Booths /> -->
   </div>
@@ -19,8 +19,7 @@ import Location from "./home/Location.vue"
 import Tickets from "./home/Tickets.vue"
 import Prizes from "./home/Prizes.vue"
 import Events from "./events/Events.vue"
-import Booths from "./booth/Booths.vue"
-
+import Booths from "./booths/Booths.vue"
 
 export default defineComponent({
   name: "Home",
@@ -31,8 +30,8 @@ export default defineComponent({
     Tickets,
     Prizes,
     Events,
-    Booths
-  }
+    Booths,
+  },
 })
 </script>
 

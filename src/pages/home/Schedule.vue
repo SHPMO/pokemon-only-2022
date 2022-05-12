@@ -4,8 +4,8 @@
     <svg class="schedule-content" viewBox="0 0 1920 755">
       <image
         xlink:href="../../assets/page-backgrounds/schedule.png"
-        x="12"
-        y="160"
+        x="4"
+        y="80"
         height="405"
         width="1561"
       />
@@ -150,10 +150,9 @@ export default defineComponent({
 
 <style scoped>
 .schedule-content {
-  position: absolute;
-  left: 0;
-  top: 0;
+  margin-top: 80px;
   width: 100%;
+  min-width: 720px;
   height: auto;
   z-index: 0;
 }
