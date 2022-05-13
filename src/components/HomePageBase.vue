@@ -86,7 +86,8 @@ export default defineComponent({
   width: 48px;
   line-height: 60px;
   color: #040000;
-  font-weight: bold;
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 900;
   margin: auto;
 }
 

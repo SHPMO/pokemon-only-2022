@@ -1,6 +1,8 @@
 <template>
-  <router-link class="anchor" :to="`/${target}`" @click.stop.prevent="click(target, $event)">
-    <slot />
+  <router-link class="anchor" :to="`/${target}`" custom v-slot="{ href }">
+    <a :href="href" @click.stop.prevent="click(target, $event)">
+      <slot />
+    </a>
   </router-link>
 </template>
 
@@ -14,16 +16,18 @@ export default defineComponent({
   props: {
     target: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   methods: {
     click(target: string, e: MouseEvent) {
       e.preventDefault()
+      e.stopPropagation()
+      e.stopImmediatePropagation()
       if (inHome()) {
         setHash(target, true)
       } else {
-        let x = e.target as (HTMLElement | null)
+        let x = e.target as HTMLElement | null
         while (x !== null) {
           if (x.tagName.toLowerCase() === "a") {
             location.href = (x as HTMLAnchorElement).href
@@ -32,8 +36,8 @@ export default defineComponent({
           x = x.parentElement
         }
       }
-    }
-  }
+    },
+  },
 })
 </script>
 

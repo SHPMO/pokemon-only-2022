@@ -5,8 +5,9 @@
       <div>回到<br />上方</div>
     </div>
   </div>
+  <Title />
   <router-view />
-  <Footer />
+  <Footer class="footer" />
 </template>
 
 <script lang="ts">
@@ -14,6 +15,7 @@ import { defineComponent } from "vue"
 
 import Header from "./components/Header.vue"
 import Footer from "./components/Footer.vue"
+import Title from "./pages/home/Title.vue"
 
 import { inHome, isLandscapeOrientation, setHash, setTitle } from "./utils/view"
 
@@ -21,6 +23,7 @@ export default defineComponent({
   name: "App",
   components: {
     Header,
+    Title,
     Footer,
   },
   data() {
@@ -43,9 +46,9 @@ export default defineComponent({
       this.inFooter =
         document.documentElement.scrollHeight -
           currentTop -
-          window.innerHeight * 0.9 +42 <
+          window.innerHeight * 0.9 -
+          12 <
         196
-      console.log([document.documentElement.scrollHeight, currentTop, window.innerHeight])
 
       const goingDown = currentTop > this.previousTop
       this.previousTop = currentTop
@@ -94,6 +97,10 @@ export default defineComponent({
   height: 100%;
 }
 
+.footer {
+  margin-top: 120px;
+}
+
 .back-to-top > div {
   position: fixed;
   right: 10%;
@@ -123,7 +130,7 @@ export default defineComponent({
 
 .back-to-top > div.inFooter {
   position: absolute;
-  bottom: 134px;
+  bottom: 240px;
 }
 
 @media only screen and (orientation: portrait) {
@@ -162,13 +169,31 @@ export default defineComponent({
 @font-face {
   font-family: "Noto Sans SC";
   src: local("Noto Sans SC"), url("./assets/fonts/NotoSansHans-DemiLight.otf");
-  font-weight: lighter;
+  font-weight: 300;
 }
 
 @font-face {
   font-family: "Noto Sans SC";
   src: local("Noto Sans SC"), url("./assets/fonts/NotoSansHans-Bold.otf");
   font-weight: bold;
+}
+
+@font-face {
+  font-family: "Noto Serif SC";
+  src: local("Noto Serif SC"), url("./assets/fonts/NotoSerifSC-Medium.otf");
+  font-weight: 400 500;
+}
+
+@font-face {
+  font-family: "Noto Serif SC";
+  src: local("Noto Serif SC"), url("./assets/fonts/NotoSerifSC-Bold.otf");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Noto Serif SC";
+  src: local("Noto Serif SC"), url("./assets/fonts/NotoSerifSC-Black.otf");
+  font-weight: 900;
 }
 
 html,
@@ -208,5 +233,11 @@ a:hover {
 
 .gray {
   color: #808080;
+}
+
+.background-dash {
+  position: absolute;
+  width: 100%;
+  height: auto;
 }
 </style>

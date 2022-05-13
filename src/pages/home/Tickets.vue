@@ -1,5 +1,21 @@
 <template>
   <HomePageBase class="page-tickets" name="tickets" title="票务信息">
+    <svg class="background-dash" viewBox="0 0 1920 916">
+      <image
+        x="0px"
+        y="297px"
+        width="1919px"
+        height="252px"
+        xlink:href="../../assets/background-dash/4.png"
+      />
+      <image
+        x="0px"
+        y="0px"
+        width="142px"
+        height="916px"
+        xlink:href="../../assets/background-dash/5.png"
+      />
+    </svg>
     <template v-slot:title>
       <a
         v-if="ticketLink"
@@ -91,7 +107,9 @@
       </li>
       <li>
         在收到票后，以《<span class="red">魔都PMO2022报名 + 昵称</span
-        >》为邮件名，发送邮件到<span class="red">nebby@getdaze.org</span>。
+        >》为邮件名，发送邮件到<a class="red" href="mailto:nebby@getdaze.org"
+          >nebby@getdaze.org</a
+        >。
       </li>
       <li>
         邮件中需要包含：门票ID号 | 对战券ID号 | 门票 + 对战券照片 | 个人昵称 |
@@ -116,13 +134,23 @@ export default {
   components: {
     HomePageBase,
   },
-  setup: () => {
-    ticketLink: PurchasingLink
+  setup() {
+    return {
+      ticketLink: PurchasingLink,
+    }
   },
 }
 </script>
 
 <style scoped>
+.page-tickets {
+  margin-top: 172px;
+}
+
+.background-dash {
+  margin-top: -472px;
+}
+
 .tickets-background {
   margin-left: auto;
   margin-right: auto;

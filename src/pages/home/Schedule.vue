@@ -1,6 +1,21 @@
 <template>
-  <HomePageBase name="schedule" title="当日行程">
-    <!-- <div class="title-background" /> -->
+  <HomePageBase class="page-schedule" name="schedule" title="当日行程">
+    <svg class="background-dash" viewBox="0 0 1920 982">
+      <image
+        x="4px"
+        y="62px"
+        width="1916px"
+        height="169px"
+        xlink:href="../../assets/background-dash/1.png"
+      />
+      <image
+        x="1789px"
+        y="0px"
+        width="131px"
+        height="982px"
+        xlink:href="../../assets/background-dash/2.png"
+      />
+    </svg>
     <svg class="schedule-content" viewBox="0 0 1920 755">
       <image
         xlink:href="../../assets/page-backgrounds/schedule.png"
@@ -134,10 +149,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent } from "vue"
 
-import HomePageBase from "../../components/HomePageBase.vue";
-import ItemCard from "../../components/ItemCard.vue";
+import HomePageBase from "../../components/HomePageBase.vue"
+import ItemCard from "../../components/ItemCard.vue"
 
 export default defineComponent({
   name: "Schedule",
@@ -145,15 +160,24 @@ export default defineComponent({
     HomePageBase,
     ItemCard,
   },
-});
+})
 </script>
 
 <style scoped>
+.page-schedule {
+  margin-top: 32px;
+}
+
+.background-dash {
+  margin-top: -32px;
+}
+
 .schedule-content {
   margin-top: 80px;
   width: 100%;
   min-width: 720px;
   height: auto;
   z-index: 0;
+  font-family: "Noto Serif SC", serif;
 }
 </style>

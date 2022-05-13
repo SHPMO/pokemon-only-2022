@@ -1,5 +1,14 @@
 <template>
   <HomePageBase class="page-location" name="location" title="场地信息">
+    <svg class="background-dash" viewBox="0 0 1920 317">
+      <image
+        x="0px"
+        y="0px"
+        width="1920px"
+        height="317px"
+        xlink:href="../../assets/background-dash/3.png"
+      />
+    </svg>
     <svg class="location-content" viewBox="0 0 1477 1080">
       <image
         xlink:href="../../assets/page-backgrounds/location.png"
@@ -59,6 +68,11 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 32px;
+}
+
+.background-dash {
+  margin-top: -32px;
 }
 
 .location-content {

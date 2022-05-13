@@ -10,7 +10,7 @@ export const scrollIntoView = (name?: string | null, smooth = true) => {
   }
 }
 
-export const setTitle = (title: string | null = "", suffix: string | null = "Pokémon Only - Oh My Passion!!!") => {
+export const setTitle = (title: string | null = "", suffix: string | null = "Pokémon Only 2022 - 梦天庆典") => {
   document.title = [ title, suffix ].filter((x) => Boolean(x)).join(" | ")
 }
 

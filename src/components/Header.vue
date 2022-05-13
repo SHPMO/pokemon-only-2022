@@ -144,20 +144,6 @@ export default defineComponent({
   z-index: -1;
 }
 
-.nav > a {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.nav > a > span {
-  display: block;
-  text-align: center;
-  text-transform: uppercase;
-}
-
 .nav-ja {
   color: #d31751;
   font-size: 14px;
@@ -237,4 +223,22 @@ export default defineComponent({
     display: none;
   }
 }
+</style>
+
+<style>
+.nav > a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.nav > a > span {
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+
 </style>
