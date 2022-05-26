@@ -66,7 +66,7 @@ const requestAPI = async <T>(name: string, data: {
     }
     return results.data
   } catch (e) {
-    console.error(e.stack)
+    console.error((e as Error).stack)
     return null
   }
 }
