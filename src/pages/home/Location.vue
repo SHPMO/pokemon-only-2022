@@ -50,14 +50,12 @@
   </HomePageBase>
 </template>
 
-<script>
+<script lang="ts">
 import HomePageBase from "../../components/HomePageBase.vue"
-import ItemCard from "../../components/ItemCard.vue"
 
 export default {
   name: "Location",
   components: {
-    ItemCard,
     HomePageBase,
   },
 }

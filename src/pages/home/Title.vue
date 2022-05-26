@@ -1,37 +1,22 @@
 <template>
-  <div class="home-title">
+  <div v-if="show" class="home-title">
     <div class="background" />
     <div class="content">
       <div class="time-place">
         <div class="time-place-background" />
         <svg class="time-place-text" viewBox="0 0 823 518">
           <text kerning="auto" font-size="20px" x="216px" y="393.156px">
-            <tspan
-              font-size="20px"
-              font-family="Noto Sans SC"
-              font-weight="bold"
-              fill="#030000"
-            >
+            <tspan font-size="20px" font-family="Noto Sans SC" font-weight="bold" fill="#030000">
               &#28437;&#23453;&#36335;&#49;&#54;&#56;&#56;&#21495;&#35834;&#23453;&#20013;&#24515;&#32;&#32;|&#32;&#32;&#57;&#21495;&#32447;&#26143;&#20013;&#36335;&#50;&#21495;&#21475;
             </tspan>
           </text>
           <text kerning="auto" font-size="24px" x="236px" y="149.928px">
-            <tspan
-              font-size="24px"
-             
-              font-weight="bold"
-              fill="#030000"
-            >
+            <tspan font-size="24px" font-weight="bold" fill="#030000">
               SHANGHAI&#32;POKEMON&#32;ONLY
             </tspan>
           </text>
           <text kerning="auto" font-size="24px" x="383px" y="117.928px">
-            <tspan
-              font-size="24px"
-             
-              font-weight="bold"
-              fill="#030000"
-            >
+            <tspan font-size="24px" font-weight="bold" fill="#030000">
               &#50;&#48;&#50;&#50;
             </tspan>
           </text>
@@ -41,13 +26,16 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script setup lang="ts">
+import { computed } from '@vue/reactivity'
+import { watch } from 'vue'
+import { useRoute } from 'vue-router'
 
-export default defineComponent({
-  name: "Title",
-  components: {},
-});
+const route = useRoute()
+const show = computed(() => {
+  const path = route.path
+  return !path.startsWith('/booths') && !path.startsWith('/items')
+})
 </script>
 
 <style scoped>
@@ -116,20 +104,17 @@ export default defineComponent({
     background-size: auto 100%;
   } */
 
-  @media (max-width: 1280px) {
-  }
+  @media (max-width: 1280px) {}
 }
 
 @media only screen and (orientation: portrait),
-  only screen and (max-width: 600px) {
+only screen and (max-width: 600px) {
   .background {
     position: relative;
     background-size: 105% auto;
-    background-image: linear-gradient(
-        to bottom,
+    background-image: linear-gradient(to bottom,
         rgba(248, 248, 248, 0) 72.1%,
-        rgba(248, 248, 248, 1)
-      ),
+        rgba(248, 248, 248, 1)),
       url("../../assets/title/background.png");
   }
 

@@ -168,13 +168,11 @@
 <script lang="ts">
 import { defineComponent } from "vue"
 import HomePageBase from "../../components/HomePageBase.vue"
-import ItemCard from "../../components/ItemCard.vue"
 
 export default defineComponent({
   name: "Events",
   components: {
     HomePageBase,
-    ItemCard,
   },
 })
 </script>

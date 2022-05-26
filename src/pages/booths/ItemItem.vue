@@ -50,17 +50,15 @@ export default defineComponent({
 <style scoped>
 .item-item {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin: 16px;
-  width: 368px;
-  height: 215px;
-  overflow: hidden;
+  width: 250px;
 }
 
 .item-image {
   display: flex;
-  width: 215px;
-  height: 215px;
+  width: 250px;
+  height: 250px;
 }
 
 .item-name {

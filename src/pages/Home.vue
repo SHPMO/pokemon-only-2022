@@ -4,7 +4,7 @@
     <Location />
     <Tickets />
     <Events />
-    <!-- <Booths /> -->
+    <Booths />
   </div>
 </template>
 

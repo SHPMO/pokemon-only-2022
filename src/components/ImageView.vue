@@ -1,9 +1,7 @@
 <template>
-  <div>
-    <div class="image-thumbnail"
-         :style="{backgroundImage: `url(${imageURL})`}"
-         @click="onClick" />
-    <div v-if="showing" class="image-view" @click="onClick">
+  <div class="image-view">
+    <div class="image-thumbnail" :style="{ backgroundImage: `url(${imageURL})` }" @click="onClick" />
+    <div v-if="showing" class="image-fullscreen" @click="onClick">
       <img :src="imageURL" alt="image">
     </div>
   </div>
@@ -67,6 +65,11 @@ export default defineComponent({
 }
 
 .image-view {
+  width: 100%;
+  height: 100%;
+}
+
+.image-fullscreen {
   position: fixed;
   left: 0;
   top: 0;
@@ -76,10 +79,9 @@ export default defineComponent({
   z-index: 4;
 }
 
-.image-view > img {
+.image-fullscreen>img {
   object-fit: scale-down;
   width: 100%;
   height: 100%;
 }
-
 </style>

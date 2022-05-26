@@ -1,6 +1,6 @@
 <template>
-  <router-link class="anchor" :to="`/${target}`" custom v-slot="{ href }">
-    <a :href="href" @click.stop.prevent="click(target, $event)">
+  <router-link :to="`/${target}`" custom v-slot="{ href }">
+    <a class="anchor" :href="href" @click.stop.prevent="click(target, $event)">
       <slot />
     </a>
   </router-link>

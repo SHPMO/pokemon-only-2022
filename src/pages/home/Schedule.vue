@@ -152,13 +152,11 @@
 import { defineComponent } from "vue"
 
 import HomePageBase from "../../components/HomePageBase.vue"
-import ItemCard from "../../components/ItemCard.vue"
 
 export default defineComponent({
   name: "Schedule",
   components: {
     HomePageBase,
-    ItemCard,
   },
 })
 </script>

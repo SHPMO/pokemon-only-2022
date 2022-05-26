@@ -5,18 +5,11 @@
     </div>
     <div v-else class="booth-page">
       <div class="booth-info">
-        <ImageView class="booth-image" :src="booth.circle_image" />
-        <div class="booth-info-right">
-          <ItemCard
-              :number="booth.seller_id ? booth.seller_id : '--'"
-              name="Booth"
-              :theme="booth.seller_id.startsWith('A') ? 'red' : 'blue'"
-          >
-            {{ booth.circle_name }}
-          </ItemCard>
-          <div class="booth-description">
-            {{ booth.circle_description }}
-          </div>
+        <BoothCard :booth="booth" :color="booth.seller_id.startsWith('A') ? 'red' : 'blue'">
+          {{ booth.circle_name }}
+        </BoothCard>
+        <div class="booth-description">
+          {{ booth.circle_description }}
         </div>
       </div>
       <div class="items-header">商品列表</div>
@@ -29,20 +22,20 @@
 import { defineComponent } from "vue"
 
 import BoothPageBase from "./BoothPageBase.vue"
-import ItemCard from "../../components/ItemCard.vue"
 import ItemList from "./ItemList.vue"
 
 import { getSeller, Seller } from "../../utils/models"
 import { getQueryPage, setTitle } from "../../utils/view"
 import ImageView from "../../components/ImageView.vue"
+import BoothCard from "../../components/BoothCard.vue"
 
 export default defineComponent({
   name: "BoothPage",
   components: {
     ImageView,
     BoothPageBase,
-    ItemCard,
-    ItemList
+    ItemList,
+    BoothCard
   },
   methods: {
     updatePage(page: number) {
@@ -73,7 +66,7 @@ export default defineComponent({
     const id = parseInt(this.$route.params.id as string)
     this.booth = await getSeller(id)
     if (this.booth != null) {
-      setTitle(`${ this.booth.circle_name } - 现场摊位`)
+      setTitle(`${this.booth.circle_name} - 现场摊位`)
     }
   }
 })
@@ -92,10 +85,13 @@ export default defineComponent({
 .items-header {
   font-weight: bold;
   font-size: 2.5rem;
+  margin-top: 1rem;
 }
 
 .booth-info {
+  max-width: 560px;
   display: flex;
+  flex-direction: column;
   margin: 16px auto auto;
   justify-content: center;
   flex-wrap: wrap;
@@ -112,13 +108,14 @@ export default defineComponent({
   margin-bottom: 32px;
 }
 
-.booth-info-right > .item-card {
+.booth-info-right>.item-card {
   max-width: 400px;
   align-items: center;
 }
 
 .booth-description {
-
+  margin-top: 1rem;
+  font-size: 1.25rem;
 }
 
 .action-links {

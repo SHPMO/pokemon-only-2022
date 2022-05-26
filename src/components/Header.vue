@@ -57,11 +57,6 @@
   </header>
 </template>
 
-<!--<Tickets />-->
-<!--<Prizes />-->
-<!--<events />-->
-<!--<Booths />-->
-
 <script lang="ts">
 import { defineComponent } from "vue"
 

@@ -45,9 +45,9 @@ export default defineComponent({
         (isLandscapeOrientation() ? 410 : 131) + window.innerHeight * 0.1
       this.inFooter =
         document.documentElement.scrollHeight -
-          currentTop -
-          window.innerHeight * 0.9 -
-          12 <
+        currentTop -
+        window.innerHeight * 0.9 -
+        12 <
         196
 
       const goingDown = currentTop > this.previousTop
@@ -97,11 +97,7 @@ export default defineComponent({
   height: 100%;
 }
 
-.footer {
-  margin-top: 120px;
-}
-
-.back-to-top > div {
+.back-to-top>div {
   position: fixed;
   right: 10%;
   bottom: 10%;
@@ -114,7 +110,7 @@ export default defineComponent({
   z-index: 2;
 }
 
-.back-to-top > div > div {
+.back-to-top>div>div {
   margin: auto;
   color: #d6c18a;
   text-align: center;
@@ -123,18 +119,18 @@ export default defineComponent({
   letter-spacing: 2px;
 }
 
-.back-to-top > div.inTitle {
+.back-to-top>div.inTitle {
   position: absolute;
   bottom: -390px;
 }
 
-.back-to-top > div.inFooter {
+.back-to-top>div.inFooter {
   position: absolute;
   bottom: 240px;
 }
 
 @media only screen and (orientation: portrait) {
-  .back-to-top > div.inTitle {
+  .back-to-top>div.inTitle {
     position: absolute;
     bottom: -131px;
   }
@@ -203,6 +199,14 @@ body {
   color: #030000;
   background: #ffffff;
   font-family: "nevis", "Noto Sans SC", sans-serif;
+}
+
+.sans {
+  font-family: "nevis", "Noto Sans SC", sans-serif;
+}
+
+.serif {
+  font-family: "Noto Serif SC", serif;
 }
 
 a {

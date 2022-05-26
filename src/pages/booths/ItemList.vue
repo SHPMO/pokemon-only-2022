@@ -31,7 +31,7 @@ export default defineComponent({
         maxPage: number,
         updatePage: (page: number) => void
       ) => void>,
-      default: () => void 0
+      required: true
     }
   },
   data() {

@@ -1,5 +1,5 @@
 <template>
-  <BoothPageBase type="item">
+  <BoothPageBase type="item" :update-page="() => void 0">
     <div v-if="item === null" class="item-null">
       无此商品。
     </div>
@@ -30,11 +30,7 @@
     <div v-if="item !== null" class="item-images">
       <h2>相关图像</h2>
       <div>
-        <ImageView
-            class="item-image"
-            v-for="image in item.item_pictures"
-            :src="image"
-        />
+        <ImageView class="item-image" v-for="image in item.item_pictures" :src="image" />
       </div>
     </div>
   </BoothPageBase>
@@ -43,8 +39,6 @@
 <script lang="ts">
 import { defineComponent } from "vue"
 
-import HomePageBase from "../../components/HomePageBase.vue"
-import ItemCard from "../../components/ItemCard.vue"
 import ItemList from "./ItemList.vue"
 
 import { getItem, getSeller, Item, Seller } from "../../utils/models"
@@ -57,7 +51,6 @@ export default defineComponent({
   components: {
     ImageView,
     BoothPageBase,
-    ItemCard,
     ItemList
   },
   data() {
@@ -75,7 +68,7 @@ export default defineComponent({
     const id = parseInt(this.$route.params.id as string)
     this.item = await getItem(id)
     if (this.item != null) {
-      setTitle(`${ this.item.name } - 商品信息`)
+      setTitle(`${this.item.name} - 商品信息`)
       const seller = await getSeller(this.item.seller_id)
       this.sellerName = seller === null ? "" : seller.circle_name
     }
@@ -107,11 +100,11 @@ export default defineComponent({
   width: 100%;
 }
 
-.item-images > h2 {
+.item-images>h2 {
   font-size: 2.5rem;
 }
 
-.item-images > div {
+.item-images>div {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -135,7 +128,7 @@ export default defineComponent({
   margin-bottom: 32px;
 }
 
-.item-info-right > .item-card {
+.item-info-right>.item-card {
   max-width: 400px;
   align-items: center;
 }
@@ -153,7 +146,7 @@ export default defineComponent({
   margin: 16px auto auto;
 }
 
-.item-from > a {
+.item-from>a {
   color: #d31751;
 }
 

@@ -1,21 +1,8 @@
 <template>
-  <BoothPageBase type="booths" :page="page" :max-page="maxPage" :update-page="updatePage">
+  <BoothPageBase shuffle-enabled type="booths" :page="page" :max-page="maxPage" :update-page="updatePage">
     <div v-if="booths?.length > 0" class="booth-list">
-      <div
-          v-for="(booth, i) in booths"
-          class="booth-item">
-        <ItemCard
-            :number="booth.seller_id ? booth.seller_id : '--'"
-            name="Booth"
-            :theme="getCardColor(booth, i)"
-        >
-          <router-link class="booth-name" :to="`/booths/${booth.id}`">
-            {{ booth.circle_name }}
-          </router-link>
-        </ItemCard>
-        <router-link :to="`/booths/${booth.id}`">
-          <ImageView class="booth-image" :src="booth.circle_image" disabled />
-        </router-link>
+      <div v-for="(booth, i) in booths" :key="i" class="booth-item">
+        <BoothCard :booth="booth" :color="getCardColor(booth, i)" />
       </div>
     </div>
     <div class="booth-empty" v-else>暂无摊位。</div>
@@ -26,12 +13,12 @@
 import { defineComponent } from "vue"
 
 import HomePageBase from "../../components/HomePageBase.vue"
-import ItemCard from "../../components/ItemCard.vue"
 import { getSellers, Seller } from "../../utils/models"
 import { shuffle } from "../../utils/math"
 import { getQueryPage, inHome as isInHome, scrollIntoView } from "../../utils/view"
 import BoothPageBase from "./BoothPageBase.vue"
 import ImageView from "../../components/ImageView.vue"
+import BoothCard from "../../components/BoothCard.vue"
 
 const ItemsPerPage = 10
 
@@ -49,13 +36,13 @@ const sortSellers = (sellers: Seller[]): Seller[] => {
     }
     return aid.localeCompare(bid)
   })
-  const sorts: [ Seller[], Seller[], Seller[] ] = [ [], [], [] ]
+  const sorts: [Seller[], Seller[], Seller[]] = [[], [], []]
   for (const x of sellers) {
     sorts[x.seller_id.startsWith("A") ?
       0 : x.seller_id.startsWith("B") ?
         1 : 2].push(x)
   }
-  let ii = [ 0, 0, 0 ]
+  let ii = [0, 0, 0]
   let c = sorts.findIndex((x) => x.length > 0)
   return sellers.map(() => {
     const x = sorts[c][ii[c]++]
@@ -74,7 +61,7 @@ export default defineComponent({
     ImageView,
     BoothPageBase,
     HomePageBase,
-    ItemCard
+    BoothCard
   },
   data() {
     const inHome = isInHome()
@@ -89,6 +76,11 @@ export default defineComponent({
   },
   methods: {
     updatePage(page: number) {
+      if (page === -1) {
+        this.allBooths = shuffle(this.allBooths)
+        this.booths = this.allBooths.slice(0, 4)
+        return
+      }
       this.page = page
       this.booths = this.allBooths.slice(
         (page - 1) * ItemsPerPage,
@@ -119,12 +111,12 @@ export default defineComponent({
 </script>
 
 <style scoped>
-
 .booth-list {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  max-width: 900px;
 }
 
 .booth-empty {
@@ -134,7 +126,9 @@ export default defineComponent({
 
 .booth-item {
   display: flex;
+  margin: auto;
   margin-bottom: 64px;
+  width: 45%;
 }
 
 .booth-item:nth-child(odd) {
@@ -147,21 +141,6 @@ export default defineComponent({
   margin-left: auto;
   margin-right: 0;
   flex-direction: row;
-}
-
-.booth-item > .item-card {
-  width: 200px;
-  flex-direction: row;
-}
-
-.booth-item:nth-child(odd) > .item-card {
-  margin-left: 40px;
-  margin-right: -50px;
-}
-
-.booth-item:nth-child(even) > .item-card {
-  margin-left: 0;
-  margin-right: -10px;
 }
 
 .booth-image {
@@ -186,11 +165,11 @@ export default defineComponent({
     height: 280px;
   }
 
-  .booth-item:nth-child(odd) > .item-card {
+  .booth-item:nth-child(odd)>.item-card {
     margin-left: 20px;
   }
 
-  .booth-item:nth-child(even) > .item-card {
+  .booth-item:nth-child(even)>.item-card {
     margin-right: -30px;
   }
 }
@@ -201,16 +180,16 @@ export default defineComponent({
     height: 180px;
   }
 
-  .booth-item > .item-card {
+  .booth-item>.item-card {
     width: 160px;
   }
 
-  .booth-item:nth-child(odd) > .item-card {
+  .booth-item:nth-child(odd)>.item-card {
     margin-left: 16px;
     margin-right: -40px;
   }
 
-  .booth-item:nth-child(even) > .item-card {
+  .booth-item:nth-child(even)>.item-card {
     margin-right: 16px;
   }
 }
@@ -221,11 +200,11 @@ export default defineComponent({
     height: 128px;
   }
 
-  .booth-item:nth-child(odd) > .item-card {
+  .booth-item:nth-child(odd)>.item-card {
     margin-left: 12px;
   }
 
-  .booth-item:nth-child(even) > .item-card {
+  .booth-item:nth-child(even)>.item-card {
     margin-right: -4px;
   }
 }
@@ -236,7 +215,7 @@ export default defineComponent({
     height: 160px;
   }
 
-  .booth-item > .item-card {
+  .booth-item>.item-card {
     width: 200px;
   }
 
@@ -246,8 +225,8 @@ export default defineComponent({
     margin: 12px auto 12px;
   }
 
-  .booth-item:nth-child(odd) > .item-card,
-  .booth-item:nth-child(even) > .item-card {
+  .booth-item:nth-child(odd)>.item-card,
+  .booth-item:nth-child(even)>.item-card {
     margin-left: 0;
     margin-right: 12px;
   }
@@ -255,7 +234,7 @@ export default defineComponent({
 </style>
 
 <style>
-.booth-item > .item-card > a > .content {
+.booth-item>.item-card>a>.content {
   height: unset;
   width: 250px;
   white-space: unset;
@@ -263,13 +242,13 @@ export default defineComponent({
 }
 
 @media only screen and (max-width: 1024px) {
-  .booth-item > .item-card > a > .content {
+  .booth-item>.item-card>a>.content {
     width: 200px;
   }
 }
 
 @media only screen and (max-width: 600px) {
-  .booth-item > .item-card > a > .content {
+  .booth-item>.item-card>a>.content {
     width: 250px;
   }
 }
