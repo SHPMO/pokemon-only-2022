@@ -4,6 +4,9 @@
       <div v-for="(booth, i) in booths" :key="i" class="booth-item">
         <BoothCard :booth="booth" :color="getCardColor(booth, i)" />
       </div>
+      <div v-if="inHome" class="booth-separator">
+        <PMOSeparator vertical />
+      </div>
     </div>
     <div class="booth-empty" v-else>暂无摊位。</div>
   </BoothPageBase>
@@ -19,6 +22,7 @@ import { getQueryPage, inHome as isInHome, scrollIntoView } from "../../utils/vi
 import BoothPageBase from "./BoothPageBase.vue"
 import ImageView from "../../components/ImageView.vue"
 import BoothCard from "../../components/BoothCard.vue"
+import PMOSeparator from "../../components/PMOSeparator.vue"
 
 const ItemsPerPage = 10
 
@@ -61,7 +65,8 @@ export default defineComponent({
     ImageView,
     BoothPageBase,
     HomePageBase,
-    BoothCard
+    BoothCard,
+    PMOSeparator
   },
   data() {
     const inHome = isInHome()
@@ -117,6 +122,21 @@ export default defineComponent({
   flex-wrap: wrap;
   justify-content: space-between;
   max-width: 900px;
+  position: relative;
+}
+
+.booth-separator {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  z-index: 0;
+}
+
+.booth-separator>div {
+  margin: auto;
 }
 
 .booth-empty {
@@ -125,10 +145,15 @@ export default defineComponent({
 }
 
 .booth-item {
+  z-index: 1;
   display: flex;
   margin: auto;
   margin-bottom: 64px;
   width: 45%;
+}
+
+.booth-item>div {
+  width: 100%;
 }
 
 .booth-item:nth-child(odd) {
@@ -143,79 +168,15 @@ export default defineComponent({
   flex-direction: row;
 }
 
-.booth-image {
-  display: flex;
-  width: 360px;
-  height: 360px;
-}
-
-.booth-name {
-  color: #020002;
-}
-
 @media only screen and (max-width: 1280px) {
   .booth-item {
     margin-top: 48px;
   }
 }
 
-@media only screen and (max-width: 1240px) {
-  .booth-image {
-    width: 280px;
-    height: 280px;
-  }
-
-  .booth-item:nth-child(odd)>.item-card {
-    margin-left: 20px;
-  }
-
-  .booth-item:nth-child(even)>.item-card {
-    margin-right: -30px;
-  }
-}
-
-@media only screen and (max-width: 1024px) {
-  .booth-image {
-    width: 180px;
-    height: 180px;
-  }
-
-  .booth-item>.item-card {
-    width: 160px;
-  }
-
-  .booth-item:nth-child(odd)>.item-card {
-    margin-left: 16px;
-    margin-right: -40px;
-  }
-
-  .booth-item:nth-child(even)>.item-card {
-    margin-right: 16px;
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  .booth-image {
-    width: 128px;
-    height: 128px;
-  }
-
-  .booth-item:nth-child(odd)>.item-card {
-    margin-left: 12px;
-  }
-
-  .booth-item:nth-child(even)>.item-card {
-    margin-right: -4px;
-  }
-}
 
 @media only screen and (max-width: 600px) {
-  .booth-image {
-    width: 160px;
-    height: 160px;
-  }
-
-  .booth-item>.item-card {
+  .booth-item {
     width: 200px;
   }
 
@@ -223,33 +184,6 @@ export default defineComponent({
   .booth-item:nth-child(even) {
     flex-direction: row;
     margin: 12px auto 12px;
-  }
-
-  .booth-item:nth-child(odd)>.item-card,
-  .booth-item:nth-child(even)>.item-card {
-    margin-left: 0;
-    margin-right: 12px;
-  }
-}
-</style>
-
-<style>
-.booth-item>.item-card>a>.content {
-  height: unset;
-  width: 250px;
-  white-space: unset;
-  line-height: 48px;
-}
-
-@media only screen and (max-width: 1024px) {
-  .booth-item>.item-card>a>.content {
-    width: 200px;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .booth-item>.item-card>a>.content {
-    width: 250px;
   }
 }
 </style>

@@ -1,7 +1,8 @@
 <template>
-  <HomePageBase :name="isSeller ? 'booths' : 'items'" :title="isSeller ? '现场摊位' : '商品一览'">
-    <svg class="background-dash" viewBox="0 0 1920 169">
+  <HomePageBase class="page-booths" :name="isSeller ? 'booths' : 'items'" :title="isSeller ? '现场摊位' : '商品一览'">
+    <svg class="dash-background" viewBox="0 0 1920 666">
       <image x="2px" y="0px" width="1916px" height="169px" xlink:href="../../assets/background-dash/7.png" />
+      <image x="360px" y="200px" width="1142px" height="416px" xlink:href="../../assets/page-backgrounds/booths.png" />
     </svg>
     <div name="booth-links" class="action-links">
       <!-- <a v-if="shuffleEnabled" class="shuffle" @click="shuffle">换一批</a> -->
@@ -103,8 +104,12 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.action-links {
-  margin-top: 440px;
+.page-booths {
+  margin-top: 80px;
+}
+
+.dash-background {
+  margin-top: -80px;
 }
 
 .pages,
@@ -118,6 +123,10 @@ export default defineComponent({
 
 .action-links>div:nth-child(1)>a {
   margin-right: 20px;
+}
+
+.pages {
+  margin-top: 16px;
 }
 
 .disabled {
@@ -138,6 +147,11 @@ export default defineComponent({
 @media only screen and (max-width: 1240px) {
   .booth-container {
     width: 1000px;
+  }
+
+  .action-links {
+    font-size: 20px;
+    max-width: 400px;
   }
 }
 

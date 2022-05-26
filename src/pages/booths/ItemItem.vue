@@ -1,7 +1,7 @@
 <template>
   <div v-if="item !== null" class="item-item">
-    <router-link :to="`/items/${item.item_id}`">
-      <ImageView class="item-image" :src="item.cover_image" disabled />
+    <router-link class="item-image" :to="`/items/${item.item_id}`">
+      <ImageView :src="item.cover_image" disabled />
     </router-link>
 
     <div class="item-info">
@@ -51,60 +51,59 @@ export default defineComponent({
 .item-item {
   display: flex;
   flex-direction: column;
-  margin: 16px;
+  margin: 25px;
   width: 250px;
 }
 
 .item-image {
-  display: flex;
   width: 250px;
   height: 250px;
+  position: relative;
+  margin: auto;
 }
 
 .item-name {
   font-weight: bold;
   font-size: 1.5rem;
+  text-align: center;
+  display: block;
+  width: 100%;
 }
 
 .item-info {
-  margin-left: 16px;
-  width: 137px;
+  width: 100%;
+}
+
+.item-info>div {
+  width: 100%;
 }
 
 @media only screen and (max-width: 1240px) {
   .item-item {
-    width: 468px;
+    width: 450px;
   }
 }
 
 @media only screen and (max-width: 1024px) {
   .item-item {
-    width: 340px;
+    width: 322px;
   }
 }
 
 @media only screen and (max-width: 768px) {
-  .item-info {
-    margin-left: 8px;
-    width: 148px;
-  }
 
   .item-image {
-    width: 128px;
-    height: 128px;
+    width: 184px;
+    height: 184px;
   }
 
   .item-item {
     margin: 8px;
     width: 284px;
-    height: 128px;
   }
 }
 
 @media only screen and (max-width: 600px) {
-  .item-info {
-    width: 134px;
-  }
 
   .item-image {
     width: 184px;
@@ -114,7 +113,6 @@ export default defineComponent({
   .item-item {
     margin: 12px auto;
     width: 326px;
-    height: 184px;
   }
 }
 </style>

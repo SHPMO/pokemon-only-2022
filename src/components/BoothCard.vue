@@ -30,6 +30,7 @@ defineProps<{
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-width: 300px;
 }
 
 .booth-number {
@@ -40,12 +41,12 @@ defineProps<{
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
+  user-select: none;
 }
 
 .booth-number>div {
   font-size: 2rem;
   margin: auto;
-  margin-top: 3.6rem;
 }
 
 .booth-red .booth-number {
@@ -64,6 +65,7 @@ defineProps<{
 .booth-name {
   font-size: 1.75rem;
   font-weight: bold;
+  text-align: center;
 }
 
 .booth-red .booth-name:hover {
@@ -72,8 +74,20 @@ defineProps<{
 
 .booth-image {
   display: flex;
-  width: 360px;
-  height: 360px;
+  width: 100%;
+  padding-top: 100%;
+  position: relative;
   margin-top: 8px;
+}
+
+@media only screen and (max-width: 768px) {
+  .booth-card {
+    min-width: 250px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .booth-card {
+    min-width: 150px;
+  }
 }
 </style>

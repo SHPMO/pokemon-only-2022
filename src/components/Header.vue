@@ -101,7 +101,7 @@ export default defineComponent({
   flex: 1 1 auto;
 }
 
-.navs > ul {
+.navs>ul {
   display: flex;
   height: 100%;
   list-style: none;
@@ -154,7 +154,7 @@ export default defineComponent({
   align-items: center;
 }
 
-.nav-ja > span {
+.nav-ja>span {
   display: block;
 }
 
@@ -167,61 +167,64 @@ export default defineComponent({
 
 @media only screen and (max-width: 1280px) {
   .header {
-    height: 40px;
+    padding: 24px;
   }
 
-  .logo-container {
-    width: 200px;
-  }
-
-  .nav > a > span {
-    line-height: 0.8rem;
+  .nav:hover::before {
+    display: none;
   }
 
   .nav-ja {
-    font-size: 7px;
+    font-size: 12px;
+    line-height: 1rem;
+    height: 1rem;
   }
 
   .nav-zh {
-    font-size: 16px;
+    font-size: 20px;
+    line-height: 1.5rem;
   }
 }
 
 @media only screen and (max-width: 768px) {
-  .logo-container {
-    width: 120px;
+  .header {
+    padding: 24px;
   }
 
-  .nav > a > span {
-    line-height: 0.8rem;
+  .header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
-  .nav-ja {
-    font-size: 5px;
+  .logo {
+    width: 100%;
+    height: auto;
   }
 
-  .nav-zh {
-    font-size: 14px;
+  .navs {
+    margin-top: 8px;
+    width: 100%;
   }
 }
 
 @media only screen and (max-width: 600px) {
-  .header {
-    height: 12px;
+  .nav-ja {
+    margin-top: 16px;
+    font-size: 8px;
+    line-height: 8px;
+    height: 8px;
   }
 
-  .logo-container {
-    margin-left: 3%;
-  }
-
-  .navs {
-    display: none;
+  .nav-zh {
+    font-size: 12px;
+    line-height: 1rem;
   }
 }
 </style>
 
 <style>
-.nav > a {
+.nav>a {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -229,11 +232,9 @@ export default defineComponent({
   margin-right: auto;
 }
 
-.nav > a > span {
+.nav>a>span {
   display: block;
   text-align: center;
   text-transform: uppercase;
 }
-
-
 </style>

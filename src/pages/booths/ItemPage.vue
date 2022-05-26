@@ -27,6 +27,7 @@
       <div class="item-restricted">是否限制级：{{ item.is_restricted }}</div>
       <div class="item-started">是否首发：{{ item.is_started_with ? "是" : "否" }}</div>
     </div>
+    <PMOSeparator />
     <div v-if="item !== null" class="item-images">
       <h2>相关图像</h2>
       <div>
@@ -45,14 +46,16 @@ import { getItem, getSeller, Item, Seller } from "../../utils/models"
 import { setTitle } from "../../utils/view"
 import BoothPageBase from "./BoothPageBase.vue"
 import ImageView from "../../components/ImageView.vue"
+import PMOSeparator from "../../components/PMOSeparator.vue"
 
 export default defineComponent({
   name: "BoothPage",
   components: {
     ImageView,
     BoothPageBase,
-    ItemList
-  },
+    ItemList,
+    PMOSeparator
+},
   data() {
     return {
       item: null as Item | null,

@@ -49,7 +49,7 @@ export default defineComponent({
 
 .home-page::after {
   content: "";
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 
 .anchor {
@@ -101,22 +101,14 @@ export default defineComponent({
 
 @media only screen and (max-width: 1280px) {
   .title {
-    max-width: 400px;
+    width: 80px;
+    height: 225px;
   }
 
-  h1 {
-    font-size: 63px;
-  }
-
-  h2 {
+  .title > h2 {
+    width: 30px;
     font-size: 30px;
-    margin-top: -15px;
-  }
-
-  .zeros {
-    letter-spacing: 6px;
-    font-size: 12px;
-    margin-top: -5px;
+    line-height: 37.5px;
   }
 }
 
@@ -126,17 +118,15 @@ export default defineComponent({
   }
 
   .title {
-    width: auto;
-    margin-top: 5vh;
+    width: 56px;
+    height: 157px;
+    margin-top: 0;
   }
 
-  h1 {
-    font-size: 50px;
-  }
-
-  h2 {
+  .title > h2 {
+    width: 24px;
     font-size: 24px;
-    margin-top: -12px;
+    line-height: 30px;
   }
 
   .zeros {
@@ -146,7 +136,7 @@ export default defineComponent({
   }
 
   .home-page::after {
-    margin-bottom: 64px;
+    margin-bottom: 28px;
   }
 }
 </style>

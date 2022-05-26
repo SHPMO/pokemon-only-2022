@@ -147,6 +147,7 @@ export default {
   list-style: none;
   display: flex;
   align-items: start;
+  flex-wrap: wrap;
 }
 
 .ticket-item {
@@ -226,6 +227,19 @@ export default {
   padding: 0.5rem 1.5rem;
   font-size: 1.5rem;
   font-weight: bold;
+}
+
+@media only screen and (max-width: 1024px) {
+  .ticket-info>li {
+    background-size: 30px 28px;
+    background-position: left 0;
+    padding-left: 38px;
+  }
+
+  .ticket-info {
+    font-size: 16px;
+    line-height: 30px;
+  }
 }
 </style>
 

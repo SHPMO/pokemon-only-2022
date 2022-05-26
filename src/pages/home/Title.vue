@@ -60,12 +60,8 @@ const show = computed(() => {
 }
 
 .content {
-  /* position: absolute; */
   position: relative;
   width: 100%;
-  /* height: 100%; */
-  /* top: 0; */
-  /* left: 0; */
   display: flex;
   flex-direction: column-reverse;
 }
@@ -97,55 +93,17 @@ const show = computed(() => {
   height: 100%;
 }
 
-@media only screen and (orientation: landscape) and (min-width: 601px) {
-  /* .background {
-    height: 100vh;
-    padding-top: 0;
-    background-size: auto 100%;
-  } */
-
-  @media (max-width: 1280px) {}
-}
-
-@media only screen and (orientation: portrait),
-only screen and (max-width: 600px) {
-  .background {
-    position: relative;
-    background-size: 105% auto;
-    background-image: linear-gradient(to bottom,
-        rgba(248, 248, 248, 0) 72.1%,
-        rgba(248, 248, 248, 1)),
-      url("../../assets/title/background.png");
-  }
-
+@media only screen and (max-width: 1024px) {
   .home-title {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .content {
-    position: relative;
-    width: 80%;
-    padding-top: 22.794%;
-    margin-top: -5%;
-  }
-
-  .slogan {
-    width: 50%;
-    min-width: 50%;
-    top: 30%;
-    left: 51.5%;
-  }
-
-  .address {
-    width: 100%;
-    min-width: 100%;
-    top: 0;
-    left: 0;
+    padding-left: 24px;
+    padding-right: 24px;
   }
 }
 
-/* @media only screen and (max-width: 600px) {
-} */
+@media only screen and (max-width: 768px) {
+  .home-title {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+}
 </style>

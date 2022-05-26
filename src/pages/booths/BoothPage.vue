@@ -12,6 +12,7 @@
           {{ booth.circle_description }}
         </div>
       </div>
+      <PMOSeparator />
       <div class="items-header">商品列表</div>
       <ItemList :update-states="updateStates" :sellerID="booth.id" />
     </div>
@@ -28,6 +29,7 @@ import { getSeller, Seller } from "../../utils/models"
 import { getQueryPage, setTitle } from "../../utils/view"
 import ImageView from "../../components/ImageView.vue"
 import BoothCard from "../../components/BoothCard.vue"
+import PMOSeparator from "../../components/PMOSeparator.vue"
 
 export default defineComponent({
   name: "BoothPage",
@@ -35,7 +37,8 @@ export default defineComponent({
     ImageView,
     BoothPageBase,
     ItemList,
-    BoothCard
+    BoothCard,
+    PMOSeparator
   },
   methods: {
     updatePage(page: number) {
@@ -94,7 +97,6 @@ export default defineComponent({
   flex-direction: column;
   margin: 16px auto auto;
   justify-content: center;
-  flex-wrap: wrap;
 }
 
 .booth-image {
@@ -103,44 +105,20 @@ export default defineComponent({
   height: 360px;
   margin: 0 40px 32px;
 }
-
-.booth-info-right {
-  margin-bottom: 32px;
-}
-
-.booth-info-right>.item-card {
-  max-width: 400px;
-  align-items: center;
-}
-
 .booth-description {
   margin-top: 1rem;
   font-size: 1.25rem;
 }
 
-.action-links {
-  width: 100%;
-  max-width: 605px;
-  font-size: 24px;
-  margin-top: 16px;
-}
-
-@media only screen and (max-width: 1280px) {
-  .action-links {
-    font-size: 20px;
-    max-width: 400px;
+@media only screen and (max-width: 1024px) {
+  .booth-info  {
+    max-width: 380px;
   }
 }
 
 @media only screen and (max-width: 600px) {
-  .action-links {
-    width: 80%;
-    min-width: 350px;
-  }
-
-  .booth-image {
-    width: 300px;
-    height: 300px;
+  .booth-info  {
+    max-width: 300px;
   }
 }
 </style>
