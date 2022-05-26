@@ -43,7 +43,7 @@
       </li>
       <div class="event-separator" />
     </ul>
-    <div class="stage-events">
+    <!-- <div class="stage-events">
       <svg viewBox="0 0 832 228">
         <polygon points="0,57 98,0 196,57 196,171 98,228 0,171" fill="#d6c18a" />
         <text x="96px" y="0" text-anchor="middle" font-weight="bold" fill="#040404">
@@ -86,7 +86,7 @@
           <tspan x="520px" dy="1.2em" font-size="28.2px">不要脸</tspan>
         </text>
       </svg>
-    </div>
+    </div> -->
   </HomePageBase>
 </template>
 

@@ -51,6 +51,7 @@ export default {
   margin-right: auto;
   width: 76.93%;
   min-width: 720px;
+  z-index: 1;
 }
 
 .location-content {
