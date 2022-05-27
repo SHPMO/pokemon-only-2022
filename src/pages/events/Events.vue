@@ -26,7 +26,7 @@
       <div class="event-separator" />
       <li class="event-item">
         <div class="event-number highlighted">Activity 3</div>
-        <h3>冷笑话</h3>
+        <h3>冻土的召唤</h3>
         <div class="event-details highlighted">详情待更新</div>
       </li>
       <div class="event-separator" />

@@ -45,9 +45,9 @@ export default defineComponent({
         (isLandscapeOrientation() ? 410 : 131) + window.innerHeight * 0.1
       this.inFooter =
         document.documentElement.scrollHeight -
-        currentTop -
-        window.innerHeight * 0.9 -
-        12 <
+          currentTop -
+          window.innerHeight * 0.9 -
+          12 <
         196
 
       const goingDown = currentTop > this.previousTop
@@ -97,7 +97,7 @@ export default defineComponent({
   height: 100%;
 }
 
-.back-to-top>div {
+.back-to-top > div {
   position: fixed;
   right: 10%;
   bottom: 10%;
@@ -110,7 +110,7 @@ export default defineComponent({
   z-index: 2;
 }
 
-.back-to-top>div>div {
+.back-to-top > div > div {
   margin: auto;
   color: #d6c18a;
   text-align: center;
@@ -119,18 +119,18 @@ export default defineComponent({
   letter-spacing: 2px;
 }
 
-.back-to-top>div.inTitle {
+.back-to-top > div.inTitle {
   position: absolute;
   bottom: -390px;
 }
 
-.back-to-top>div.inFooter {
+.back-to-top > div.inFooter {
   position: absolute;
   bottom: 240px;
 }
 
 @media only screen and (orientation: portrait) {
-  .back-to-top>div.inTitle {
+  .back-to-top > div.inTitle {
     position: absolute;
     bottom: -131px;
   }
@@ -144,11 +144,7 @@ export default defineComponent({
 </style>
 
 <style>
-*,
-::before,
-::after {
-  box-sizing: border-box;
-}
+@import url("https://fonts.font.im/css2?family=Noto+Sans+SC:wght@300;400;700&family=Noto+Serif+SC:wght@500;700;900&display=swap");
 
 @font-face {
   font-family: "nevis";
@@ -156,40 +152,10 @@ export default defineComponent({
   font-weight: normal;
 }
 
-@font-face {
-  font-family: "Noto Sans SC";
-  src: local("Noto Sans SC"), url("./assets/fonts/NotoSansHans-Regular.otf");
-  font-weight: normal;
-}
-
-@font-face {
-  font-family: "Noto Sans SC";
-  src: local("Noto Sans SC"), url("./assets/fonts/NotoSansHans-DemiLight.otf");
-  font-weight: 300;
-}
-
-@font-face {
-  font-family: "Noto Sans SC";
-  src: local("Noto Sans SC"), url("./assets/fonts/NotoSansHans-Bold.otf");
-  font-weight: bold;
-}
-
-@font-face {
-  font-family: "Noto Serif SC";
-  src: local("Noto Serif SC"), url("./assets/fonts/NotoSerifSC-Medium.otf");
-  font-weight: 400 500;
-}
-
-@font-face {
-  font-family: "Noto Serif SC";
-  src: local("Noto Serif SC"), url("./assets/fonts/NotoSerifSC-Bold.otf");
-  font-weight: 700;
-}
-
-@font-face {
-  font-family: "Noto Serif SC";
-  src: local("Noto Serif SC"), url("./assets/fonts/NotoSerifSC-Black.otf");
-  font-weight: 900;
+*,
+::before,
+::after {
+  box-sizing: border-box;
 }
 
 html,

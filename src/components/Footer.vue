@@ -6,7 +6,7 @@
       <li class="link">
         <a href="https://www.weibo.com/SHPMO" target="_blank">
           <img class="weibo-logo" src="../assets/footer/weibo.png" alt="">
-          <span>@魔都PMO_OMP</span>
+          <span>@魔都PMO_梦天庆典</span>
         </a>
       </li>
       <li class="link">

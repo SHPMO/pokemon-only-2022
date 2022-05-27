@@ -17,7 +17,7 @@
       <li class="ticket-item">
         <div class="ticket-number highlighted">Ticket 1</div>
         <h3>普通入场票</h3>
-        <div class="ticket-price highlighted">预售 50 RMB</div>
+        <div class="ticket-price highlighted">预售 60 RMB</div>
         <ul class="ticket-content">
           <li>含<span class="highlighted">入场票*1</span></li>
           <li class="highlighted">入场特典*1</li>
@@ -27,7 +27,7 @@
       <li class="ticket-item">
         <div class="ticket-number highlighted">Ticket 2</div>
         <h3>普通入场票</h3>
-        <div class="ticket-price highlighted">现场 70 RMB</div>
+        <div class="ticket-price highlighted">现场 80 RMB</div>
         <ul class="ticket-content">
           <li>含<span class="highlighted">入场票*1</span></li>
           <li class="highlighted">入场特典*1</li>
@@ -99,7 +99,7 @@
 <script lang="ts">
 import HomePageBase from "../../components/HomePageBase.vue"
 
-const PurchasingLink = ""
+const PurchasingLink = "https://item.taobao.com/item.htm?id=674924784653"
 
 export default {
   name: "Tickets",
