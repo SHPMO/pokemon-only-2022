@@ -1,8 +1,24 @@
 <template>
-  <HomePageBase class="page-booths" :name="isSeller ? 'booths' : 'items'" :title="isSeller ? '现场摊位' : '商品一览'">
-    <svg class="dash-background" viewBox="0 0 1920 666">
-      <image x="2px" y="0px" width="1916px" height="169px" xlink:href="../../assets/background-dash/7.png" />
-      <image x="360px" y="200px" width="1142px" height="416px" xlink:href="../../assets/page-backgrounds/booths.png" />
+  <HomePageBase
+    class="page-booths"
+    :name="isSeller ? 'booths' : 'items'"
+    :title="isSeller ? '现场摊位' : '商品一览'"
+  >
+    <svg class="dash-background" viewBox="0 0 1920 700">
+      <image
+        x="2px"
+        y="0px"
+        width="1916px"
+        height="169px"
+        xlink:href="../../assets/background-dash/7.png"
+      />
+      <image
+        x="360px"
+        y="240px"
+        width="1142px"
+        height="416px"
+        xlink:href="../../assets/page-backgrounds/booths.png"
+      />
     </svg>
     <div name="booth-links" class="action-links">
       <!-- <a v-if="shuffleEnabled" class="shuffle" @click="shuffle">换一批</a> -->
@@ -11,7 +27,11 @@
         <router-link to="/items">商品一览</router-link>
       </div>
       <div v-if="type === 'booths'">
-        <a class="register" href="https://www.getdaze.org/dashboard/register/signupin/" target="_blank">
+        <a
+          class="register"
+          href="https://www.getdaze.org/dashboard/register/signupin/"
+          target="_blank"
+        >
           申请入口
         </a>
       </div>
@@ -20,13 +40,22 @@
       <slot />
     </div>
     <div v-if="maxPage > 0" class="pages">
-      <a :class="{ disabled: page <= 1 }" :href="page <= 1 ? undefined : `?page=${page - 1}`"
-        @click.prevent="updatePageState(page - 1)">上一页</a>
+      <a
+        :class="{ disabled: page <= 1 }"
+        :href="page <= 1 ? undefined : `?page=${page - 1}`"
+        @click.prevent="updatePageState(page - 1)"
+        >上一页</a
+      >
       <div>
-        <span class="page">{{ page }}</span> / <span class="page-max">{{ maxPage }}</span>
+        <span class="page">{{ page }}</span> /
+        <span class="page-max">{{ maxPage }}</span>
       </div>
-      <a :class="{ disabled: page >= maxPage }" :href="page >= maxPage ? undefined : `?page=${page + 1}`"
-        @click.prevent="updatePageState(page + 1)">下一页</a>
+      <a
+        :class="{ disabled: page >= maxPage }"
+        :href="page >= maxPage ? undefined : `?page=${page + 1}`"
+        @click.prevent="updatePageState(page + 1)"
+        >下一页</a
+      >
     </div>
   </HomePageBase>
 </template>
@@ -43,29 +72,29 @@ type PageType = typeof PageTypes[number]
 export default defineComponent({
   name: "BoothPageBase",
   components: {
-    HomePageBase
+    HomePageBase,
   },
   props: {
     updatePage: {
       type: Function as PropType<(page: number) => void>,
-      required: true
+      required: true,
     },
     page: {
       type: Number,
-      default: 0
+      default: 0,
     },
     maxPage: {
       type: Number,
-      default: 0
+      default: 0,
     },
     type: {
       type: String as PropType<PageType>,
-      default: "booths"
+      default: "booths",
     },
     shuffleEnabled: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   methods: {
     updatePageState(page: number, updateState = true) {
@@ -86,12 +115,12 @@ export default defineComponent({
     },
     shuffle() {
       this.updatePage(-1)
-    }
+    },
   },
   data() {
     const type = PageTypes.includes(this.type) ? this.type : "booths"
     return {
-      isSeller: type === "booths" || type === "booth"
+      isSeller: type === "booths" || type === "booth",
     }
   },
   mounted() {
@@ -99,7 +128,7 @@ export default defineComponent({
   },
   unmounted() {
     window.removeEventListener("popstate", this.onPopState)
-  }
+  },
 })
 </script>
 
@@ -109,6 +138,7 @@ export default defineComponent({
 }
 
 .dash-background {
+  position: relative;
   margin-top: -80px;
 }
 
@@ -121,7 +151,7 @@ export default defineComponent({
   font-size: 24px;
 }
 
-.action-links>div:nth-child(1)>a {
+.action-links > div:nth-child(1) > a {
   margin-right: 20px;
 }
 
@@ -156,11 +186,14 @@ export default defineComponent({
 }
 
 @media only screen and (max-width: 1024px) {
+  .dash-background {
+    margin-top: -20px;
+    margin-bottom: 40px;
+  }
   .booth-container {
     width: 744px;
   }
 }
-
 
 @media only screen and (max-width: 768px) {
   .booth-container {
@@ -169,7 +202,6 @@ export default defineComponent({
 }
 
 @media only screen and (max-width: 600px) {
-
   .booth-container,
   .pages,
   .action-links {

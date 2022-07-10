@@ -1,16 +1,39 @@
 <template>
   <HomePageBase class="page-tickets" name="tickets" title="票务信息">
     <svg class="background-dash" viewBox="0 0 1920 916">
-      <image x="0px" y="297px" width="1919px" height="252px" xlink:href="../../assets/background-dash/4.png" />
-      <image x="0px" y="0px" width="142px" height="916px" xlink:href="../../assets/background-dash/5.png" />
+      <image
+        x="0px"
+        y="297px"
+        width="1919px"
+        height="252px"
+        xlink:href="../../assets/background-dash/4.png"
+      />
+      <image
+        x="0px"
+        y="0px"
+        width="142px"
+        height="916px"
+        xlink:href="../../assets/background-dash/5.png"
+      />
     </svg>
     <template v-slot:title>
-      <a v-if="ticketLink" class="tickets-purchase" :href="ticketLink" target="_blank">
+      <a
+        v-if="ticketLink"
+        class="tickets-purchase"
+        :href="ticketLink"
+        target="_blank"
+      >
         点此购票
       </a>
     </template>
     <svg class="tickets-background" viewBox="0 0 1920 1156">
-      <image xlink:href="../../assets/page-backgrounds/tickets.png" x="60" y="0" height="1156" width="1464" />
+      <image
+        xlink:href="../../assets/page-backgrounds/tickets.png"
+        x="60"
+        y="0"
+        height="1156"
+        width="1464"
+      />
     </svg>
     <ul class="ticket-list">
       <div class="ticket-separator" />
@@ -78,18 +101,24 @@
     </ul>
     <ul class="ticket-info">
       <li>
-        需要参加对战区比赛的游客，请在购买门票的同时，将“<span class="red">加购对战券</span>”加入购物车并一起支付。
+        需要参加对战区比赛的游客，请在购买门票的同时，将“<span class="red"
+          >加购对战券</span
+        >”加入购物车并一起支付。
       </li>
       <li>
-        在收到票后，以《<span class="red">魔都PMO2022报名 + 昵称</span>》为邮件名，发送邮件到<a class="red"
-          href="mailto:nebby@getdaze.org">nebby@getdaze.org</a>。
+        在收到票后，以《<span class="red">魔都PMO2022报名 + 昵称</span
+        >》为邮件名，发送邮件到<a class="red" href="mailto:nebby@getdaze.org"
+          >nebby@getdaze.org</a
+        >。
       </li>
       <li>
         邮件中需要包含：门票ID号 | 对战券ID号 | 门票 + 对战券照片 | 个人昵称 |
         个人QQ号 ，以作为报名的验证和方便进行后期通知。
       </li>
       <li>
-        另外有少量普通入场票的实体店寄卖<span class="gray">（不设置舞台区入场票和VIP入场票）</span>。
+        另外有少量普通入场票的实体店寄卖<span class="gray"
+          >（不设置舞台区入场票和VIP入场票）</span
+        >。
       </li>
     </ul>
     <router-link class="link-battle" to="/battle">查看对战规则详情</router-link>
@@ -180,7 +209,7 @@ export default {
   font-weight: bold;
 }
 
-.ticket-item>h3 {
+.ticket-item > h3 {
   font-size: 28px;
   margin: 0;
 }
@@ -215,12 +244,13 @@ export default {
   line-height: 61px;
 }
 
-.ticket-info>li {
+.ticket-info > li {
   background: url("../../assets/common/icon-flower.png") no-repeat left center;
   padding-left: 52px;
 }
 
 .link-battle {
+  z-index: 2;
   margin-top: 20px;
   background: #d6c18a;
   border-radius: 4px;
@@ -230,7 +260,7 @@ export default {
 }
 
 @media only screen and (max-width: 1024px) {
-  .ticket-info>li {
+  .ticket-info > li {
     background-size: 30px 28px;
     background-position: left 0;
     padding-left: 38px;
@@ -244,7 +274,7 @@ export default {
 </style>
 
 <style>
-.page-tickets>.title-container {
+.page-tickets > .title-container {
   left: unset;
   right: 5%;
   width: 20%;

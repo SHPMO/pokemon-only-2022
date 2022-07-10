@@ -4,31 +4,20 @@
     <Location />
     <Tickets />
     <Events />
+    <PressPass />
+    <CardSleeve />
     <Booths />
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue"
-
-import Title from "./home/Title.vue"
+<script setup lang="ts">
 import Schedule from "./home/Schedule.vue"
 import Location from "./home/Location.vue"
 import Tickets from "./home/Tickets.vue"
 import Events from "./events/Events.vue"
 import Booths from "./booths/Booths.vue"
-
-export default defineComponent({
-  name: "Home",
-  components: {
-    Title,
-    Schedule,
-    Location,
-    Tickets,
-    Events,
-    Booths,
-  },
-})
+import PressPass from "./home/PressPass.vue"
+import CardSleeve from "./home/CardSleeve.vue"
 </script>
 
 <style scoped>

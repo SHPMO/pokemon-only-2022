@@ -1,10 +1,20 @@
 <template>
   <HomePageBase class="page-events" name="events" title="活动安排">
-    <svg class="background-dash" viewBox="0 0 1920 169">
-      <image x="2px" y="0px" width="1916px" height="169px" xlink:href="../../assets/background-dash/6.png" />
-    </svg>
-    <svg class="events-background" viewBox="0 0 1920 513">
-      <image xlink:href="../../assets/page-backgrounds/events.png" x="601" y="0" height="513" width="1319" />
+    <svg class="background-dash" viewBox="0 0 1920 941">
+      <image
+        x="2px"
+        y="0px"
+        width="1916px"
+        height="169px"
+        xlink:href="../../assets/background-dash/6.png"
+      />
+      <image
+        xlink:href="../../assets/page-backgrounds/events.png"
+        x="0"
+        y="241"
+        height="700"
+        width="1920"
+      />
     </svg>
     <ul class="event-list">
       <div class="event-separator" />
@@ -104,15 +114,13 @@ export default defineComponent({
 
 <style scoped>
 .page-events {
-  margin-top: 172px;
+  margin-top: 100px;
 }
 
 .background-dash {
-  margin-top: -272px;
-}
-
-
-.events-background {
+  position: relative;
+  margin-top: -172px;
+  margin-bottom: -100px;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
@@ -158,7 +166,7 @@ export default defineComponent({
   font-weight: bold;
 }
 
-.event-item>h3 {
+.event-item > h3 {
   font-size: 28px;
   margin: 0;
 }
@@ -196,26 +204,30 @@ export default defineComponent({
   flex-wrap: wrap;
 }
 
-.stage-events>svg:nth-child(1) {
+.stage-events > svg:nth-child(1) {
   width: 56.676%;
 }
 
-.stage-events>svg:nth-child(2) {
+.stage-events > svg:nth-child(2) {
   width: 42.234%;
   margin-left: 1.09%;
 }
 
 @media only screen and (max-width: 1024px) {
+  .background-dash {
+    margin-top: -50px;
+    margin-bottom: 0;
+  }
   .stage-events {
     min-width: 350px;
   }
 
-  .stage-events>svg:nth-child(1) {
+  .stage-events > svg:nth-child(1) {
     width: 100%;
     margin: auto;
   }
 
-  .stage-events>svg:nth-child(2) {
+  .stage-events > svg:nth-child(2) {
     width: 74.518%;
     margin: auto;
     margin-top: -24px;

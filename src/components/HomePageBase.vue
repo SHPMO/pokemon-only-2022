@@ -86,7 +86,7 @@ export default defineComponent({
   width: 48px;
   line-height: 60px;
   color: #040000;
-  font-family: 'Noto Serif SC', serif;
+  font-family: "Noto Serif SC", serif;
   font-weight: 900;
   margin: auto;
 }
@@ -97,6 +97,12 @@ export default defineComponent({
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+@media only screen and (orientation: portrait) {
+  .home-page {
+    min-height: unset;
+  }
 }
 
 @media only screen and (max-width: 1280px) {

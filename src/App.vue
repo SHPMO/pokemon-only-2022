@@ -205,6 +205,10 @@ a:hover {
   color: #808080;
 }
 
+.gold {
+  color: #d6c18a;
+}
+
 .background-dash {
   position: absolute;
   width: 100%;

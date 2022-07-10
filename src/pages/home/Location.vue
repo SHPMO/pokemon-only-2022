@@ -1,8 +1,8 @@
 <template>
   <HomePageBase class="page-location" name="location" title="场地信息">
     <svg class="background-dash" viewBox="0 0 1920 811">
-      <image x="0px" y="0px" width="1920px" height="317px" xlink:href="../../assets/background-dash/3.png" />
-      <image xlink:href="../../assets/page-backgrounds/location.png" x="280.5" y="56" height="465" width="755" />
+      <image x="0px" y="64px" width="1920px" height="317px" xlink:href="../../assets/background-dash/3.png" />
+      <image xlink:href="../../assets/page-backgrounds/location.png" x="0" y="0" width="1920px" height="700px" />
     </svg>
     <div class="location-container">
       <svg class="location-content" viewBox="0 0 1477 1080">
@@ -42,7 +42,7 @@ export default {
 }
 
 .background-dash {
-  margin-top: -32px;
+  margin-top: -96px;
 }
 
 .location-container {
