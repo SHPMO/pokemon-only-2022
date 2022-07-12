@@ -29,10 +29,10 @@
     <svg class="tickets-background" viewBox="0 0 1920 1156">
       <image
         xlink:href="../../assets/page-backgrounds/tickets.png"
-        x="60"
+        x="350"
         y="0"
         height="1156"
-        width="1464"
+        width="1174"
       />
     </svg>
     <ul class="ticket-list">
